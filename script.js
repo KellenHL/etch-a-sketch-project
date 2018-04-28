@@ -1,13 +1,15 @@
-// This is the recommendation on how to create DIVs with a .js file
 
-// var div = document.createElement("div");
-// div.style.width = "100px";
-// div.style.height = "100px";
-// div.style.background = "red";
-// div.style.color = "white";
-// div.innerHTML = "Hello";
+let container = document.getElementById("container");
 
-// document.getElementById("main").appendChild(div);
-// OR
-// document.body.appendChild(div);
-// Use parent reference instead of document.body.
+function createGrid(x) {
+	for (var rows = 0; rows < x; rows++) {
+		for (var columns = 0; columns < x; columns++) {
+			container.append("div class='grid'></div>");
+		};
+	};
+	document.getElementsByClassName("grid").width(960/x);
+	document.getElementsByClassName("grid").width(960/x);
+}
+
+createGrid(16);
+
