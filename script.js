@@ -4,12 +4,22 @@ function createGrid(x) {
 		for (let j = 0; j < x; j++) {
 			let divs = document.createElement("div");
 			divs.className = "grid";
+			divs.style.height = 960 / x + "px";
+			divs.style.width = 960 / x + "px";
+
 			container.appendChild(divs);
 		};
 	};
-	let grid = document.getElementsByClassName("grid");
-	grid.width = 960 / x;
-	grid.height = 960 / x;
 }
 
-createGrid(16);
+
+
+const boxes = document.querySelectorAll(".grid")
+
+function colorDiv(event) {
+	event.target.classList.add('moused-grid')
+}
+
+boxes.forEach((div) => {
+	div.addEventListener("mouseover", colorDiv);
+});
