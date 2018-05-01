@@ -10,27 +10,28 @@ function createGrid(x) {
 			container.appendChild(divs);
 		};
 	};
-}
+	const boxes = document.querySelectorAll(".grid")
 
-createGrid(16);
-
-const boxes = document.querySelectorAll(".grid")
-
-function colorDiv(event) {
+	function colorDiv(event) {
 	event.target.classList.add('moused-grid')
+	}
+
+	boxes.forEach((div) => {
+	div.addEventListener("mouseover", colorDiv);
+	});
 }
 
-boxes.forEach((div) => {
-	div.addEventListener("mouseover", colorDiv);
-});
+window.onload=createGrid(16);
+
+
 
 function clearGrid() {
 	document.getElementById("container").innerHTML = "";
 }
 
 function reset() {
-	const z = prompt("Pick a number");
 	clearGrid();
+	let z = prompt("Pick a number...");
 	createGrid(z);
 }
 
