@@ -12,7 +12,7 @@ function createGrid(x) {
 	};
 }
 
-
+createGrid(16);
 
 const boxes = document.querySelectorAll(".grid")
 
@@ -23,3 +23,15 @@ function colorDiv(event) {
 boxes.forEach((div) => {
 	div.addEventListener("mouseover", colorDiv);
 });
+
+function clearGrid() {
+	document.getElementById("container").innerHTML = "";
+}
+
+function reset() {
+	const z = prompt("Pick a number");
+	clearGrid();
+	createGrid(z);
+}
+
+document.getElementById("reset").addEventListener("click", reset);
